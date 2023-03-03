@@ -2,7 +2,7 @@
 
 *Out on Tue, Jan. 31, 2023. Due on Fri, Feb. 17, 2023, 6:00pm.*
 
-*Submit a zip file of, or the __p1__ project folder to Gradescope before the due date. Include all modified files. Failure to follow instructions will result in an administrative penalty of up to 20%*
+*Submit the entire __p1__ project as a zip file to Gradescope before the due date. Include all modified files. Failure to follow instructions will result in an administrative penalty of up to 20%*
 
 This programming assignment assumes that you have fulfilled all course prerequisites and followed along with the D3 tutorials.
 
@@ -11,13 +11,17 @@ This programming assignment assumes that you have fulfilled all course prerequis
 We will use **gradescope** for all programming assignments and project milestones. You should already be well acquainted with the process from previous courses, but ask course staff if you need a refresher.
 
 This repo contains a basic template that should help you get started. You can download .zip of the repo: ([p1.zip](https://www.students.cs.ubc.ca/~cs-447/23Jan/p1.zip)).
-A dataset is included in the `/data` folder. You will need to modify the `.html`, `.js`, and `.css` files as described below. You may add helper files to organize your code. Please include these in your submission with all other files as required.
+A dataset is included in the `/data` folder. You will need to modify the `.html`, `.js`, and `.css` files as described below.
+
+Don't add new files, don't leave out files, and don't change the names of existing files. Any changes will result in an admin overhead penalty of up to 20%.
 
 We will also evaluate code readability and structure (add comments, indent code, use functions, ...).
 
 Cite any external resources and explain exactly what modifications you have made in your README documentation. We created an empty `README.md` file in the root directory of the repo.
 
-Submit the programming assignment by zipping ALL the above files, or selecting the whole `p1` folder and submitting it to Gradescope before the deadline. Work alone.
+Submit the programming assignment by zipping ALL the above files, or selecting the whole `p1` folder and submitting it to Gradescope before the deadline.
+
+Work alone.
 
 ---
 
@@ -53,7 +57,7 @@ We recommend that you break down the implementation into the following tasks. Pl
 	        .endAngle(Math.PI / 2);
 		```
 
-	* You need to create the radius scale that is used in the arc generator: The radius should be between **4** and **140px** for the least and most costly disasters, respectively. Use a **square root scale** and not a linear scale to create an accurate visual representation. You can read more about why it's a mistake to linearly map a data value to a circle radius in this [blog post](https://bl.ocks.org/guilhermesimoes/e6356aa90a16163a6f917f53600a2b4a).
+	* You need to create the radius scale that is used in the arc generator: The radius should be between **4** and **120px** for the least and most costly disasters, respectively. Use a **square root scale** and not a linear scale to create an accurate visual representation. You can read more about why it's a mistake to linearly map a data value to a circle radius in this [blog post](https://bl.ocks.org/guilhermesimoes/e6356aa90a16163a6f917f53600a2b4a).
 
 
 3. **Draw the semicircles**
@@ -90,7 +94,8 @@ We recommend that you break down the implementation into the following tasks. Pl
 
 5. **Add text annotations**
 
-	* *Required:* Add a text label with the `name` of the costliest disaster of each year. The labels should be positioned below each semicircle and centered (hint: `.attr('text-anchor', 'middle')`). Make sure that all labels are also part of your enter-update-exit workflow.
+	* *Required:* Add a text label with the `name` of the costliest disaster of each year. The labels should be positioned below each semicircle and centered (hint: `.attr('text-anchor', 'middle')`). Make sure that all labels are also part of your enter-update-exit workflow. If more than one disaster is the costliest disaster of that year, render both text annotations.
+	* *Required:* There must only be as many text objects rendered in the HMTL as there are costliest disasters. Do not append all of the disaster labels and change the opacity based on the costliest disaster.
 	* *Not required:* In our solution, we displayed the text label for Hurricane Harvey at the top and showed the estimated cost in billion dollars. We have also included the caption: *"Circles are sized proportionally to their cost in 2017 dollars."*. Those annotations are optional.
 
 6. **Add a legend that also serves as an interactive filter**
